@@ -2,7 +2,9 @@
 hapi-mysql
 
 ### 安装
+```
 git clone https://github.com/gmw-zjw/hapi-api
+```
 
 ### 项目预览
 
