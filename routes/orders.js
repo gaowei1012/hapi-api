@@ -37,7 +37,7 @@ module.exports = [
       description: '支付某条订单',
       validate: {
         params: {
-          orderId: Joi.string().required(),
+          orderId: Joi.string().required().error(new Error('订单号必须大于三位数字')),
         },
       },
     },
