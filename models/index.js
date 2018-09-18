@@ -3,11 +3,17 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const config = require('../config/config');
+const configs = require('../config/config');
 
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = config[env];
+// const config = config[env];
+const config = {
+  ...configs[env],
+  define: {
+    underscored: true // 使系统中默认的 createdAt 与 updatedAt 能以下划线的方式，与表结构保持一致。
+  }
+};
 const db = {};
 
 let sequelize = null;

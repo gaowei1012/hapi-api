@@ -1,13 +1,16 @@
 const Joi = require('joi');
+const modles = require('./../models');
 
 const GROUP_NAME = 'shops';
 
 module.exports = [
   {
     method: 'GET',
-    path: `/${GROUP_NAME}`,
+    path: '/shop',
     handler: async (request, reply) => {
-      reply();
+      // 查找数据, 并且通过attributes过滤掉铭感数据,例如用户的密码
+      const result = await modles.shops.findAll({attributes: { exclude: ['password'] }});
+      reply(result);
     },
     config: {
       tags: ['api', GROUP_NAME],
