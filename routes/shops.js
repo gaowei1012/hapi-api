@@ -5,14 +5,14 @@ const GROUP_NAME = 'shops';
 
 module.exports = [
   {
-    method: 'GET',
-    path: '/shop',
-    handler: async (request, reply) => {
+    method: 'GET',// methods
+    path: '/shop', // paths
+    handler: async (request, reply) => { // handler
       // 查找数据, 并且通过attributes过滤掉铭感数据,例如用户的密码
       const result = await modles.shops.findAll({attributes: { exclude: ['password'] }});
       reply(result);
     },
-    config: {
+    config: { // config
       tags: ['api', GROUP_NAME],
       description: '获取店铺列表',
       validate: {

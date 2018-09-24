@@ -4,6 +4,7 @@
  * @param {*} sequlize 
  * @param {*} DataTypes 
  */
+
 module.exports = (sequlize, DataTypes) => sequlize.define(
 
     'goods',
